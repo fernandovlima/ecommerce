@@ -6,9 +6,19 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint src"
+    "lint": "eslint src --max-warning=0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*": ["yarn lint --fix"]
   },
   "dependencies": {
+    "husky": "^4.3.8",
+    "lint-staged": "^10.5.3",
     "next": "10.0.5",
     "react": "17.0.1",
     "react-dom": "17.0.1"
